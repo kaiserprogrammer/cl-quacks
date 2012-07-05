@@ -6,7 +6,8 @@
   ((authors :initform (make-hash-table))
    (authors-by-name :initform (make-hash-table :test #'equal))
    (users :initform (make-hash-table))
-   (users-by-name :initform (make-hash-table :test #'equal))))
+   (users-by-name :initform (make-hash-table :test #'equal))
+   (quotes :initform (make-hash-table))))
 
 (defgeneric get-author (db id))
 (defmethod get-author ((db memory-db) (id number))
@@ -40,3 +41,13 @@
     (setf (gethash (name user) (slot-value db 'users-by-name)) user)
     user-id))
 
+(defgeneric get-quote (db id))
+(defmethod get-quote ((db memory-db) (id number))
+  (gethash id (slot-value db 'quotes) 'quote-does-not-exist))
+
+(defgeneric add-quote-to-db (db quote))
+(defmethod add-quote-to-db ((db memory-db) (quote quote))
+  (let ((id (incf *ids*)))
+    (setf (gethash id (slot-value db 'quotes))
+          quote)
+    id))

@@ -15,4 +15,8 @@
    :text
    :add-image
    :image
-   :src))
+   :src
+   :like-quote
+   :get-quote
+   :likes
+   :qquote))
