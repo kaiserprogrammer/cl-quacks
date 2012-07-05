@@ -19,4 +19,6 @@
    :like-quote
    :get-quote
    :likes
-   :qquote))
+   :qquote
+   :dislike-quote
+   :dislikes))

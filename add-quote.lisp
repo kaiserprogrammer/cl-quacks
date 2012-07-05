@@ -9,7 +9,9 @@
          :reader user)
    (id :accessor id)
    (likes :initform '()
-          :accessor likes)))
+          :accessor likes)
+   (dislikes :initform '()
+          :accessor dislikes)))
 
 (defun add-quote (user-id author-id text db)
   (let* ((user (get-user db user-id))

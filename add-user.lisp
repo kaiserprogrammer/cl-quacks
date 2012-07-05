@@ -7,7 +7,9 @@
    (quotes :accessor quotes
            :initform '())
    (likes :initform '()
-          :accessor likes)))
+          :accessor likes)
+   (dislikes :initform '()
+          :accessor dislikes)))
 
 (defun add-user (name db)
   (let ((user (get-user db name)))
