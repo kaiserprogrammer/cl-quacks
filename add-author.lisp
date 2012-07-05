@@ -6,7 +6,8 @@
    (name :accessor name
          :initarg :name)
    (quotes :accessor quotes
-           :initform '())))
+           :initform '())
+   (image :accessor image)))
 
 (defun add-author (name db)
   (let ((author (get-author db name)))

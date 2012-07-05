@@ -12,4 +12,7 @@
    :quotes
    :author
    :user
-   :text))
+   :text
+   :add-image
+   :image
+   :src))
