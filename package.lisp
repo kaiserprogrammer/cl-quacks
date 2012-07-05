@@ -4,4 +4,12 @@
    :add-author
    :name
    :memory-db
-   :get-author))
+   :get-author
+   :add-user
+   :get-user
+   :id
+   :add-quote
+   :quotes
+   :author
+   :user
+   :text))

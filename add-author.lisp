@@ -4,10 +4,12 @@
   ((id :reader id
        :initarg :id)
    (name :accessor name
-         :initarg :name)))
+         :initarg :name)
+   (quotes :accessor quotes
+           :initform '())))
 
 (defun add-author (name db)
-  (let ((author (get-author-by-name db name)))
+  (let ((author (get-author db name)))
     (if (eql author 'author_does_not_exist)
         (add-author-to-db db
                           (make-instance 'author
