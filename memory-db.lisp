@@ -46,7 +46,7 @@
   (gethash id (slot-value db 'quotes) 'quote-does-not-exist))
 
 (defgeneric add-quote-to-db (db quote))
-(defmethod add-quote-to-db ((db memory-db) (quote quote))
+(defmethod add-quote-to-db ((db memory-db) (quote qquote))
   (let ((id (incf *ids*)))
     (setf (gethash id (slot-value db 'quotes))
           quote)

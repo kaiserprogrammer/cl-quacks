@@ -1,6 +1,6 @@
 (in-package :quacks)
 
-(defclass quote ()
+(defclass qquote ()
   ((text :initarg :text
          :reader text)
    (author :initarg :author
@@ -16,7 +16,7 @@
 (defun add-quote (user-id author-id text db)
   (let* ((user (get-user db user-id))
          (author (get-author db author-id))
-         (quote (make-instance 'quote
+         (quote (make-instance 'qquote
                                :user user
                                :author author
                                :text text))
