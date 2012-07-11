@@ -2,7 +2,8 @@
 
 (defclass image ()
   ((src :initarg :src
-        :accessor src)))
+        :accessor src
+        :initform "")))
 
 (defun add-image (author-id path db)
   (let ((author (get-author db author-id)))

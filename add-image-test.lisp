@@ -5,6 +5,11 @@
 (def-suite add-image)
 (in-suite add-image)
 
+(test no-image
+  (let* ((db (make-instance 'memory-db))
+         (author (get-author db (add-author "Kent" db))))
+    (is (equal "" (src (image author))))))
+
 (test add-image
   (let* ((db (make-instance 'memory-db))
          (author (get-author db (add-author "Kent" db))))

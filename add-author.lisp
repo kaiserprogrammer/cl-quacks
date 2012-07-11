@@ -7,7 +7,8 @@
          :initarg :name)
    (quotes :accessor quotes
            :initform '())
-   (image :accessor image)))
+   (image :accessor image
+          :initform (make-instance 'image))))
 
 (defun add-author (name db)
   (let ((author (get-author db name)))
