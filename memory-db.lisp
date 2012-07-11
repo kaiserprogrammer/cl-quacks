@@ -9,8 +9,8 @@
    (users-by-name :initform (make-hash-table :test #'equal))
    (quotes :initform (make-hash-table))))
 
-(defgeneric get-author (db id))
-(defmethod get-author ((db memory-db) (id number))
+(defgeneric get-author-db (db id))
+(defmethod get-author-db ((db memory-db) (id number))
   (gethash id (slot-value db 'authors) 'author_does_not_exist))
 
 (defgeneric add-author-to-db (db author))
@@ -24,7 +24,7 @@
           author)
     author-id))
 
-(defmethod get-author ((db memory-db) (name string))
+(defmethod get-author-db ((db memory-db) (name string))
   (gethash name (slot-value db 'authors-by-name) 'author_does_not_exist))
 
 (defgeneric get-user (db id))

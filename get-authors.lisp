@@ -1,6 +1,6 @@
 (in-package :quacks)
 
-(defun get-authors (db)
+(defun get-author-dbs (db)
   (loop for author in (get-all-authors db)
      for qquote = (first
                    (sort (copy-seq (quotes author))

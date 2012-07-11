@@ -7,7 +7,7 @@
 
 (test dislike-quote
   (let* ((db (make-instance 'memory-db))
-         (author (get-author db (add-author "Kent" db)))
+         (author (get-author-db db (add-author "Kent" db)))
          (user (get-user db (add-user "John" db)))
          (quote (get-quote
                  db

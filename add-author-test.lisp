@@ -8,15 +8,15 @@
 (test add-author
   (let* ((db (make-instance 'quacks:memory-db))
          (author-id (add-author "Kent Beck" db))
-         (author (get-author db author-id)))
+         (author (get-author-db db author-id)))
     (is (equal "Kent Beck" (name author)))))
 
 (test add-second-author
   (let* ((db (make-instance 'memory-db))
          (first-author-id (add-author "Kent Beck" db))
          (second-author-id (add-author "Uncle Bob" db))
-         (first-author (get-author db first-author-id))
-         (second-author (get-author db second-author-id)))
+         (first-author (get-author-db db first-author-id))
+         (second-author (get-author-db db second-author-id)))
     (is (equal "Kent Beck" (name first-author)))
     (is (equal "Uncle Bob" (name second-author)))))
 

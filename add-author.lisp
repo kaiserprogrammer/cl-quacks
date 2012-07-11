@@ -11,7 +11,7 @@
           :initform (make-instance 'image))))
 
 (defun add-author (name db)
-  (let ((author (get-author db name)))
+  (let ((author (get-author-db db name)))
     (if (eql author 'author_does_not_exist)
         (add-author-to-db db
                           (make-instance 'author

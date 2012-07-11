@@ -7,11 +7,11 @@
 
 (test add-quote
   (let* ((db (make-instance 'memory-db))
-         (author (get-author db (add-author "Kent Beck" db)))
+         (author (get-author-db db (add-author "Kent Beck" db)))
          (user (get-user db (add-user "Jim" db))))
     (add-quote (id user) (id author) "blub" db)
     (let ((user-quotes (quotes (get-user db "Jim")))
-          (author-quotes (quotes (get-author db "Kent Beck"))))
+          (author-quotes (quotes (get-author-db db "Kent Beck"))))
       (is (equal "blub" (text (first user-quotes))))
       (is (eql (first user-quotes) (first author-quotes)))
       (is (eql user (user (first author-quotes))))
@@ -19,7 +19,7 @@
 
 (test two-quotes
   (let* ((db (make-instance 'memory-db))
-         (author (get-author db (add-author "Blub" db)))
+         (author (get-author-db db (add-author "Blub" db)))
          (user (get-user db (add-user "John" db)))
          (quote1-id (add-quote (id user) (id author) "blub1" db))
          (quote2-id (add-quote (id user) (id author) "blub2" db)))

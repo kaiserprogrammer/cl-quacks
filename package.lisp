@@ -4,7 +4,7 @@
    :add-author
    :name
    :memory-db
-   :get-author
+   :get-author-db
    :add-user
    :get-user
    :id
@@ -22,4 +22,5 @@
    :qquote
    :dislike-quote
    :dislikes
-   :get-authors))
+   :get-authors
+   :get-author))

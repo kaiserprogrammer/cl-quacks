@@ -6,7 +6,7 @@
         :initform "")))
 
 (defun add-image (author-id path db)
-  (let ((author (get-author db author-id)))
+  (let ((author (get-author-db db author-id)))
     (setf (image author)
           (make-instance 'image
                          :src path))))
