@@ -51,3 +51,7 @@
     (setf (gethash id (slot-value db 'quotes))
           quote)
     id))
+
+(defun get-all-authors (db)
+  (loop for author being the hash-values in (slot-value db 'authors)
+       collect author))

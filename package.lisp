@@ -21,4 +21,5 @@
    :likes
    :qquote
    :dislike-quote
-   :dislikes))
+   :dislikes
+   :get-authors))
