@@ -14,6 +14,10 @@
                (:file "add-image" :depends-on ("package"))
                (:file "dislike-quote" :depends-on ("package"))
                (:file "like-quote" :depends-on ("package"))
+               (:file "get-author" :depends-on ("package"))
+               (:file "get-authors" :depends-on ("package"))
+               (:file "get-user" :depends-on ("package"))
+               (:file "get-users" :depends-on ("package"))
                (:file "memory-db" :depends-on ("add-author"
                                                "add-user"
                                                "add-quote"))))
