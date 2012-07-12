@@ -55,3 +55,7 @@
 (defun get-all-authors (db)
   (loop for author being the hash-values in (slot-value db 'authors)
        collect author))
+
+(defun get-all-users (db)
+  (loop for user being the hash-values in (slot-value db 'users)
+     collect user))

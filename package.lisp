@@ -24,4 +24,5 @@
    :dislike-quote
    :dislikes
    :get-authors
-   :get-author))
+   :get-author
+   :get-users))
