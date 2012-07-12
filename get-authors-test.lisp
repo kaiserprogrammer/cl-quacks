@@ -45,7 +45,7 @@
 (test quote
   (let* ((db (make-instance 'memory-db))
          (author (get-author-db db (add-author "Uncle Bob" db)))
-         (user (get-user db (add-user "John" db)))
+         (user (get-user-db db (add-user "John" db)))
          (quote-id (add-quote (id user) (id author) "blub" db)))
     (let ((quote (cdr (assoc :qquote (first (get-authors db))))))
       (is (equal quote-id (cdr (assoc :id quote))))
@@ -58,8 +58,8 @@
 (test favorite-quote
   (let* ((db (make-instance 'memory-db))
          (author (get-author-db db (add-author "Mc" db)))
-         (user1 (get-user db (add-user "Jim" db)))
-         (user2 (get-user db (add-user "John" db)))
+         (user1 (get-user-db db (add-user "Jim" db)))
+         (user2 (get-user-db db (add-user "John" db)))
          (quote1-id (add-quote (id user1) (id author) "blub" db))
          (quote2-id (add-quote (id user1) (id author) "blub" db)))
     (like-quote quote1-id (id user1) db)

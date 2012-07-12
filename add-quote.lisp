@@ -14,7 +14,7 @@
           :accessor dislikes)))
 
 (defun add-quote (user-id author-id text db)
-  (let* ((user (get-user db user-id))
+  (let* ((user (get-user-db db user-id))
          (author (get-author-db db author-id))
          (quote (make-instance 'qquote
                                :user user

@@ -12,7 +12,7 @@
           :accessor dislikes)))
 
 (defun add-user (name db)
-  (let ((user (get-user db name)))
+  (let ((user (get-user-db db name)))
     (if (eql user 'user-does-not-exist)
         (let* ((user (make-instance 'user :name name))
                (user-id (add-user-to-db db user)))

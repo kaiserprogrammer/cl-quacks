@@ -27,11 +27,11 @@
 (defmethod get-author-db ((db memory-db) (name string))
   (gethash name (slot-value db 'authors-by-name) 'author_does_not_exist))
 
-(defgeneric get-user (db id))
+(defgeneric get-user-db (db id))
 
-(defmethod get-user ((db memory-db) (id number))
+(defmethod get-user-db ((db memory-db) (id number))
   (gethash id (slot-value db 'users)))
-(defmethod get-user ((db memory-db) (name string))
+(defmethod get-user-db ((db memory-db) (name string))
   (gethash name (slot-value db 'users-by-name) 'user-does-not-exist))
 
 (defgeneric add-user-to-db (db user))

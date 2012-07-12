@@ -8,7 +8,7 @@
 
 (defun like-quote (quote-id user-id db)
   (let* ((quote (get-quote db quote-id))
-         (user (get-user db user-id)))
+         (user (get-user-db db user-id)))
     (unless (member quote (likes user) :key #'qquote :test #'eql)
       (let ((like (make-instance 'like
                                  :user user

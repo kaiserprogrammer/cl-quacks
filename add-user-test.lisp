@@ -8,15 +8,15 @@
 (test adding-a-user
   (let* ((db (make-instance 'memory-db))
          (user-id (add-user "John" db))
-         (user (get-user db user-id)))
+         (user (get-user-db db user-id)))
     (is (equal "John" (name user)))))
 
 (test adding-a-second-user
   (let* ((db (make-instance 'memory-db))
          (first-id (add-user "Jim" db))
          (second-id (add-user "John" db))
-         (first (get-user db first-id))
-         (second (get-user db second-id)))
+         (first (get-user-db db first-id))
+         (second (get-user-db db second-id)))
     (is (equal "Jim" (name first)))
     (is (equal first-id (id first)))
     (is (equal "John" (name second)))
@@ -26,8 +26,8 @@
   (let* ((db (make-instance 'memory-db))
          (first-id (add-user "John" db))
          (second-id (add-user "John" db))
-         (first (get-user db first-id))
-         (second (get-user db second-id)))
+         (first (get-user-db db first-id))
+         (second (get-user-db db second-id)))
     (is (eql first second))))
 
 (run!)

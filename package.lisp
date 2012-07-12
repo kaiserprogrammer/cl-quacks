@@ -6,6 +6,7 @@
    :memory-db
    :get-author-db
    :add-user
+   :get-user-db
    :get-user
    :id
    :add-quote

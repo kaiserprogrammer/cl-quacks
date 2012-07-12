@@ -24,10 +24,9 @@
 (test one-quote
   (let* ((db (make-instance 'memory-db))
          (author (get-author-db db (add-author "Jim" db)))
-         (user (get-user db (add-user "John" db)))
+         (user (get-user-db db (add-user "John" db)))
          (quote (get-quote db (add-quote (id user) (id author) "blub" db))))
     (let ((qdata (first (cdr (assoc :quotes (get-author (id author) db))))))
-      (print qdata)
       (is (equal (id quote) (cdr (assoc :id qdata))))
       (is (equal (text quote) (cdr (assoc :text qdata))))
       (is (equal (name user) (cdr (assoc :user-name qdata))))
@@ -38,7 +37,7 @@
 (test likes-for-quotes
   (let* ((db (make-instance 'memory-db))
          (author (get-author-db db (add-author "Me" db)))
-         (user (get-user db (add-user "John" db)))
+         (user (get-user-db db (add-user "John" db)))
          (quote (get-quote db (add-quote (id user) (id author) "blub" db))))
     (like-quote (id quote) (id user) db)
     (dislike-quote (id quote) (id user) db)
