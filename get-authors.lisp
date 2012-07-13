@@ -1,6 +1,6 @@
 (in-package :quacks)
 
-(defun get-author-dbs (db)
+(defun get-authors (db)
   (loop for author in (get-all-authors db)
      for qquote = (first
                    (sort (copy-seq (quotes author))
@@ -16,5 +16,5 @@
                         (:text . ,(text qquote))
                         (:likes . ,(length (likes qquote)))
                         (:dislikes . ,(length (dislikes qquote)))
-                        (:user-name . "John")
+                        (:user-name . ,(name (user qquote)))
                         (:user-id . ,(id (user qquote))))))))
