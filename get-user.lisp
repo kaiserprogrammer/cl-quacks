@@ -15,4 +15,5 @@
                                    (:likes . ,(length (likes quote)))
                                    (:dislikes . ,(length (dislikes quote)))
                                    (:author-name . ,(name (author quote)))
-                                   (:author-id . ,(id (author quote)))))))))
+                                   (:author-id . ,(id (author quote)))
+                                   (:author-image . ,(src (image (author quote))))))))))
