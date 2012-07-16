@@ -5,6 +5,13 @@
 (def-suite get-users)
 (in-suite get-users)
 
+(test no-quote
+  (let* ((db (make-instance 'memory-db)))
+    (add-user "John" db)
+    (let ((data (get-users db)))
+      (is (null (cdr (assoc :quote (first data)))))
+      (is (equal "John" (cdr (assoc :name (first data))))))))
+
 (test get-users
   (let* ((db (make-instance 'memory-db))
          (user (get-user-db db (add-user "John" db)))

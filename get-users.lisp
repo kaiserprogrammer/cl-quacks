@@ -9,8 +9,11 @@
      collect `((:name . ,(name user))
                (:id . ,(id user))
                (:score . 0)
-               (:quote .
-                       ((:text . ,(text quote))
-                        (:id . ,(id quote))
-                        (:author-name . ,(name (author quote)))
-                        (:author-id . ,(id (author quote))))))))
+               .
+               ,(when quote
+                      `((:quote
+                         .
+                         ((:text . ,(text quote))
+                          (:id . ,(id quote))
+                          (:author-name . ,(name (author quote)))
+                          (:author-id . ,(id (author quote))))))))))
